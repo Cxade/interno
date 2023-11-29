@@ -2,12 +2,18 @@ import { createRouter, createWebHistory } from "vue-router";
 import PageHome from "../pages/PageHome.vue";
 import PageBlog from "../pages/PageBlog.vue";
 import PageArticles from "../pages/PageArticles.vue";
+import PageProject from "../pages/PageProject.vue";
 
 const routes = [
   {
     path: "/",
     name: "home",
     component: PageHome,
+  },
+  {
+    path: "/project",
+    name: "project",
+    component: PageProject,
   },
   {
     path: "/blog",

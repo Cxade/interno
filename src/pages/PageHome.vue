@@ -45,7 +45,7 @@
             :key="card.key"
           >
             <img
-              :src="require('@/assets/img/' + card)"
+              :src="'/img/' + card"
               alt="kitchen"
               class="projects__kitchen-img"
             />

@@ -12,10 +12,7 @@
             <div v-if="article.tag === activeTag">
               <p class="articles__article-date">{{ article.date }}</p>
               <h1>{{ article.title }}</h1>
-              <img
-                :src="require('@/assets/img/articles/' + article.img)"
-                :alt="article.tag"
-              />
+              <img :src="'/img/articles/' + article.img" :alt="article.tag" />
               <p class="articles__article-text">{{ article.text }}</p>
             </div>
           </div>
@@ -57,7 +54,7 @@ export default {
           tag: "kitchen",
           date: "26 December,2022 ",
           title: "Kitchen title",
-          img: "kitchen_1.png",
+          img: "kitchen.png",
           text: "Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpmaximus.posuere in.Contrary to popular belief.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injecthumour, or randomised words which don't look even slightly believable. Embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary. Here is the kitchen!",
         },
         {
@@ -65,7 +62,7 @@ export default {
           tag: "bedroom",
           date: "3 February,2023 ",
           title: "Bedroom title",
-          img: "kitchen_1.png",
+          img: "bedroom.png",
           text: "Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpmaximus.posuere in.Contrary to popular belief.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injecthumour, or randomised words which don't look even slightly believable. Embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary. Here is the bedroom!",
         },
         {

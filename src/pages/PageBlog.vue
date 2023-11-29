@@ -1,11 +1,11 @@
 <template>
   <div class="blog">
-    <div class="banner">
-      <div class="banner__inside">
-        <h2 class="banner__heading">Articles & News</h2>
-        <p class="banner__text">Home / Blog</p>
-      </div>
-    </div>
+    <BannerTop
+      banner-inside
+      inside-heading="Articles & News"
+      inside-breadcrumbs="Home / Blog"
+      image-name="banner_blog.png"
+    />
     <section class="post">
       <div class="post__main center">
         <h2 class="post__heading">Latest Post</h2>
@@ -87,10 +87,13 @@
 
 <script>
 import ArticlesCardsTemplate from "@/components/ArticlesCardsTemplate.vue";
+import BannerTop from "@/components/BannerTop.vue";
+
 export default {
   name: "PageBlog",
   components: {
     ArticlesCardsTemplate,
+    BannerTop,
   },
   data() {
     return {
@@ -146,36 +149,6 @@ export default {
 <style lang="scss" scoped>
 @import "@/assets/styles/variables.scss";
 
-.banner {
-  background: no-repeat center 80% url("@/assets/img/blog_top.png");
-  background-color: #e7e7e7;
-  height: 356px;
-  object-fit: cover;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  margin-bottom: 200px;
-
-  &__inside {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding: 41px 78px;
-    border-radius: 37px 37px 0px 0px;
-    background: #fff;
-  }
-  &__heading {
-    color: $secondColor;
-    font-size: 50px;
-  }
-  &__text {
-    color: $textColor;
-    font-size: 22px;
-    line-height: 150%;
-    letter-spacing: 0.22px;
-  }
-}
 .post {
   margin-bottom: 150px;
 
