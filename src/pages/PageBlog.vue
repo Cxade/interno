@@ -56,30 +56,7 @@
       <div class="articles__main center">
         <h1 class="articles__heading flex">Articles & News</h1>
         <ArticlesCardsTemplate :articlesCards="articlesCards" />
-        <div class="articles__swiper-box">
-          <div class="articles__swiper">
-            <p class="articles__swiper-text">01</p>
-          </div>
-          <div class="articles__swiper">02</div>
-          <div class="articles__swiper">03</div>
-          <div class="articles__swiper">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="53"
-              height="52"
-              viewBox="0 0 53 52"
-              fill="none"
-            >
-              <path
-                d="M23.5571 32L29.5 25.3143L23.5571 18.6286"
-                stroke="#292f36"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </div>
-        </div>
+        <SwiperPlug :style="{ marginTop: '51px' }" />
       </div>
     </section>
   </div>
@@ -88,12 +65,14 @@
 <script>
 import ArticlesCardsTemplate from "@/components/ArticlesCardsTemplate.vue";
 import BannerTop from "@/components/BannerTop.vue";
+import SwiperPlug from "@/components/SwiperPlug.vue";
 
 export default {
   name: "PageBlog",
   components: {
     ArticlesCardsTemplate,
     BannerTop,
+    SwiperPlug,
   },
   data() {
     return {
@@ -214,33 +193,6 @@ export default {
     font-size: 22px;
     letter-spacing: 0.22px;
     margin-bottom: 52px;
-  }
-
-  &__swiper-box {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 51px;
-  }
-  &__swiper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 52px;
-    height: 52px;
-    border-radius: 50px;
-    border: 1px solid $mainColor;
-
-    &:first-child {
-      border: none;
-      background-color: $backColor;
-    }
-
-    &-text {
-      color: $secondColor;
-      font-size: 16px;
-      font-weight: 500;
-    }
   }
 }
 </style>
