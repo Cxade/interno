@@ -55,7 +55,7 @@
     <section class="articles">
       <div class="articles__main center">
         <h1 class="articles__heading flex">Articles & News</h1>
-        <ArticlesCardsTemplate :articlesCards="articlesCards" />
+        <BlockArticles :articlesCards="articlesCards" />
         <SwiperPlug :style="{ marginTop: '51px' }" />
       </div>
     </section>
@@ -63,63 +63,64 @@
 </template>
 
 <script>
-import ArticlesCardsTemplate from "@/components/ArticlesCardsTemplate.vue";
+import BlockArticles from "@/blocks/BlockArticles.vue";
+
 import BannerTop from "@/components/BannerTop.vue";
 import SwiperPlug from "@/components/SwiperPlug.vue";
 
 export default {
   name: "PageBlog",
   components: {
-    ArticlesCardsTemplate,
     BannerTop,
     SwiperPlug,
+    BlockArticles,
   },
   data() {
     return {
-      projectKitchenCardsName: {
-        name_1: "kitchen1.png",
-        name_2: "kitchen2.png",
-        name_3: "kitchen3.png",
-        name_4: "kitchen4.png",
-      },
-      articlesCards: {
-        card_1: {
+      articlesCards: [
+        {
+          id: 1,
           imgName: "design1.png",
           text: "Kitchen Design",
           heading: "Let’s Get Solution For Building Construction Work",
           date: "26 December,2022",
         },
-        card_2: {
+        {
+          id: 2,
           imgName: "design2.png",
           text: "Living Design",
           heading: "Low Cost Latest Invented Interior Designing Ideas.",
           date: "22 December,2022",
         },
-        card_3: {
+        {
+          id: 3,
           imgName: "design3.png",
           text: "Interior Design",
           heading: "Best For Any Office & Business Interior Solution",
           date: "25 December,2022",
         },
-        card_4: {
+        {
+          id: 4,
           imgName: "design4.png",
           text: "Kitchen Design",
           heading: "Let’s Get Solution For Building Construction Work",
           date: "26 December,2022",
         },
-        card_5: {
+        {
+          id: 5,
           imgName: "design5.png",
           text: "Living Design",
           heading: "Low Cost Latest Invented Interior Designing Ideas.",
           date: "22 December,2022",
         },
-        card_6: {
+        {
+          id: 6,
           imgName: "design6.png",
           text: "Interior Design",
           heading: "Best For Any Office & Business Interior Solution",
           date: "25 December,2022",
         },
-      },
+      ],
     };
   },
 };

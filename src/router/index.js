@@ -3,6 +3,7 @@ import PageHome from "../pages/PageHome.vue";
 import PageBlog from "../pages/PageBlog.vue";
 import PageArticles from "../pages/PageArticles.vue";
 import PageProject from "../pages/PageProject.vue";
+import PageProjectDetails from "../pages/PageProjectDetails.vue";
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: "/articles",
     name: "articles",
     component: PageArticles,
+  },
+  {
+    path: "/details",
+    name: "details",
+    component: PageProjectDetails,
   },
 ];
 

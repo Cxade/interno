@@ -72,10 +72,7 @@
           of readable content of a page when lookings at its layouts the points
           of using.
         </p>
-        <ArticlesCardsTemplate
-          :articlesCards="articlesCards"
-          :slides-per-view="3"
-        />
+        <BlockArticles :articlesCards="articlesCards" />
       </div>
     </section>
   </div>
@@ -83,12 +80,12 @@
 
 <script>
 import HomeBlockProjects from "@/blocks/HomeBlockProjects.vue";
-import ArticlesCardsTemplate from "@/components/ArticlesCardsTemplate.vue";
+import BlockArticles from "@/blocks/BlockArticles.vue";
 
 export default {
   name: "PageHome",
   components: {
-    ArticlesCardsTemplate,
+    BlockArticles,
     HomeBlockProjects,
   },
   data() {
@@ -119,26 +116,29 @@ export default {
           text: "Decor / Artchitecture",
         },
       ],
-      articlesCards: {
-        card_1: {
+      articlesCards: [
+        {
+          id: 1,
           imgName: "design1.png",
           text: "Kitchen Design",
           heading: "Let’s Get Solution For Building Construction Work",
           date: "26 December,2022",
         },
-        card_2: {
+        {
+          id: 2,
           imgName: "design2.png",
           text: "Living Design",
           heading: "Low Cost Latest Invented Interior Designing Ideas.",
           date: "22 December,2022",
         },
-        card_3: {
+        {
+          id: 3,
           imgName: "design3.png",
           text: "Interior Design",
           heading: "Best For Any Office & Business Interior Solution",
           date: "25 December,2022",
         },
-      },
+      ],
     };
   },
 };
