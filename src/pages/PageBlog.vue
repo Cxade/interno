@@ -63,6 +63,7 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
 import BlockArticles from "@/blocks/BlockArticles.vue";
 
 import BannerTop from "@/components/BannerTop.vue";
@@ -75,53 +76,14 @@ export default {
     SwiperPlug,
     BlockArticles,
   },
-  data() {
-    return {
-      articlesCards: [
-        {
-          id: 1,
-          imgName: "design1.png",
-          text: "Kitchen Design",
-          heading: "Let’s Get Solution For Building Construction Work",
-          date: "26 December,2022",
-        },
-        {
-          id: 2,
-          imgName: "design2.png",
-          text: "Living Design",
-          heading: "Low Cost Latest Invented Interior Designing Ideas.",
-          date: "22 December,2022",
-        },
-        {
-          id: 3,
-          imgName: "design3.png",
-          text: "Interior Design",
-          heading: "Best For Any Office & Business Interior Solution",
-          date: "25 December,2022",
-        },
-        {
-          id: 4,
-          imgName: "design4.png",
-          text: "Kitchen Design",
-          heading: "Let’s Get Solution For Building Construction Work",
-          date: "26 December,2022",
-        },
-        {
-          id: 5,
-          imgName: "design5.png",
-          text: "Living Design",
-          heading: "Low Cost Latest Invented Interior Designing Ideas.",
-          date: "22 December,2022",
-        },
-        {
-          id: 6,
-          imgName: "design6.png",
-          text: "Interior Design",
-          heading: "Best For Any Office & Business Interior Solution",
-          date: "25 December,2022",
-        },
-      ],
-    };
+  mounted() {
+    this.fetchData();
+  },
+  methods: {
+    ...mapActions(["fetchData"]),
+  },
+  computed: {
+    ...mapGetters(["articlesCards"]),
   },
 };
 </script>

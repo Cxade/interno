@@ -72,7 +72,7 @@
           of readable content of a page when lookings at its layouts the points
           of using.
         </p>
-        <BlockArticles :articlesCards="articlesCards" />
+        <BlockArticles :articlesCards="articlesCardsForHome" />
       </div>
     </section>
   </div>
@@ -81,6 +81,7 @@
 <script>
 import HomeBlockProjects from "@/blocks/HomeBlockProjects.vue";
 import BlockArticles from "@/blocks/BlockArticles.vue";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "PageHome",
@@ -88,58 +89,17 @@ export default {
     BlockArticles,
     HomeBlockProjects,
   },
-  data() {
-    return {
-      projectKitchenCards: [
-        {
-          id: 0,
-          imgName: "kitchen1.png",
-          heading: "Modern Kitchen",
-          text: "Decor / Artchitecture",
-        },
-        {
-          id: 1,
-          imgName: "kitchen2.png",
-          heading: "Modern Kitchen",
-          text: "Decor / Artchitecture",
-        },
-        {
-          id: 2,
-          imgName: "kitchen3.png",
-          heading: "Modern Kitchen",
-          text: "Decor / Artchitecture",
-        },
-        {
-          id: 3,
-          imgName: "kitchen4.png",
-          heading: "Modern Kitchen",
-          text: "Decor / Artchitecture",
-        },
-      ],
-      articlesCards: [
-        {
-          id: 1,
-          imgName: "design1.png",
-          text: "Kitchen Design",
-          heading: "Let’s Get Solution For Building Construction Work",
-          date: "26 December,2022",
-        },
-        {
-          id: 2,
-          imgName: "design2.png",
-          text: "Living Design",
-          heading: "Low Cost Latest Invented Interior Designing Ideas.",
-          date: "22 December,2022",
-        },
-        {
-          id: 3,
-          imgName: "design3.png",
-          text: "Interior Design",
-          heading: "Best For Any Office & Business Interior Solution",
-          date: "25 December,2022",
-        },
-      ],
-    };
+  mounted() {
+    this.fetchData();
+  },
+  methods: {
+    ...mapActions(["fetchData"]),
+  },
+  computed: {
+    ...mapGetters(["projectKitchenCards", "articlesCards"]),
+    articlesCardsForHome() {
+      return this.articlesCards.slice(0, 3);
+    },
   },
 };
 </script>
