@@ -4,6 +4,7 @@ import PageBlog from "../pages/PageBlog.vue";
 import PageArticles from "../pages/PageArticles.vue";
 import PageProject from "../pages/PageProject.vue";
 import PageProjectDetails from "../pages/PageProjectDetails.vue";
+import NotFound from "../pages/NotFound.vue";
 
 const routes = [
   {
@@ -30,6 +31,11 @@ const routes = [
     path: "/details",
     name: "details",
     component: PageProjectDetails,
+  },
+  {
+    path: "/:pathMatch(.*)",
+    name: "notFound",
+    component: NotFound,
   },
 ];
 
