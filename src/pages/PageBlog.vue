@@ -1,11 +1,11 @@
 <template>
   <div class="blog">
-    <div class="banner">
-      <div class="banner__inside">
-        <h2 class="banner__heading">Articles & News</h2>
-        <p class="banner__text">Home / Blog</p>
-      </div>
-    </div>
+    <BannerTop
+      banner-inside
+      inside-heading="Articles & News"
+      inside-breadcrumbs="Home / Blog"
+      image-name="banner_blog.png"
+    />
     <section class="post">
       <div class="post__main center">
         <h2 class="post__heading">Latest Post</h2>
@@ -55,90 +55,35 @@
     <section class="articles">
       <div class="articles__main center">
         <h1 class="articles__heading flex">Articles & News</h1>
-        <ArticlesCardsTemplate :articlesCards="articlesCards" />
-        <div class="articles__swiper-box">
-          <div class="articles__swiper">
-            <p class="articles__swiper-text">01</p>
-          </div>
-          <div class="articles__swiper">02</div>
-          <div class="articles__swiper">03</div>
-          <div class="articles__swiper">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="53"
-              height="52"
-              viewBox="0 0 53 52"
-              fill="none"
-            >
-              <path
-                d="M23.5571 32L29.5 25.3143L23.5571 18.6286"
-                stroke="#292f36"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </div>
-        </div>
+        <BlockArticles :articlesCards="articlesCards" />
+        <SwiperPlug :style="{ marginTop: '51px' }" />
       </div>
     </section>
   </div>
 </template>
 
 <script>
-import ArticlesCardsTemplate from "@/components/ArticlesCardsTemplate.vue";
+import { mapGetters, mapActions } from "vuex";
+import BlockArticles from "@/blocks/BlockArticles.vue";
+
+import BannerTop from "@/components/BannerTop.vue";
+import SwiperPlug from "@/components/SwiperPlug.vue";
+
 export default {
   name: "PageBlog",
   components: {
-    ArticlesCardsTemplate,
+    BannerTop,
+    SwiperPlug,
+    BlockArticles,
   },
-  data() {
-    return {
-      projectKitchenCardsName: {
-        name_1: "kitchen1.png",
-        name_2: "kitchen2.png",
-        name_3: "kitchen3.png",
-        name_4: "kitchen4.png",
-      },
-      articlesCards: {
-        card_1: {
-          imgName: "design1.png",
-          text: "Kitchen Design",
-          heading: "Let’s Get Solution For Building Construction Work",
-          date: "26 December,2022",
-        },
-        card_2: {
-          imgName: "design2.png",
-          text: "Living Design",
-          heading: "Low Cost Latest Invented Interior Designing Ideas.",
-          date: "22 December,2022",
-        },
-        card_3: {
-          imgName: "design3.png",
-          text: "Interior Design",
-          heading: "Best For Any Office & Business Interior Solution",
-          date: "25 December,2022",
-        },
-        card_4: {
-          imgName: "design4.png",
-          text: "Kitchen Design",
-          heading: "Let’s Get Solution For Building Construction Work",
-          date: "26 December,2022",
-        },
-        card_5: {
-          imgName: "design5.png",
-          text: "Living Design",
-          heading: "Low Cost Latest Invented Interior Designing Ideas.",
-          date: "22 December,2022",
-        },
-        card_6: {
-          imgName: "design6.png",
-          text: "Interior Design",
-          heading: "Best For Any Office & Business Interior Solution",
-          date: "25 December,2022",
-        },
-      },
-    };
+  mounted() {
+    this.fetchData();
+  },
+  methods: {
+    ...mapActions(["fetchData"]),
+  },
+  computed: {
+    ...mapGetters(["articlesCards"]),
   },
 };
 </script>
@@ -146,36 +91,6 @@ export default {
 <style lang="scss" scoped>
 @import "@/assets/styles/variables.scss";
 
-.banner {
-  background: no-repeat center 80% url("@/assets/img/blog_top.png");
-  background-color: #e7e7e7;
-  height: 356px;
-  object-fit: cover;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  margin-bottom: 200px;
-
-  &__inside {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding: 41px 78px;
-    border-radius: 37px 37px 0px 0px;
-    background: #fff;
-  }
-  &__heading {
-    color: $secondColor;
-    font-size: 50px;
-  }
-  &__text {
-    color: $textColor;
-    font-size: 22px;
-    line-height: 150%;
-    letter-spacing: 0.22px;
-  }
-}
 .post {
   margin-bottom: 150px;
 
@@ -241,33 +156,6 @@ export default {
     font-size: 22px;
     letter-spacing: 0.22px;
     margin-bottom: 52px;
-  }
-
-  &__swiper-box {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 51px;
-  }
-  &__swiper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 52px;
-    height: 52px;
-    border-radius: 50px;
-    border: 1px solid $mainColor;
-
-    &:first-child {
-      border: none;
-      background-color: $backColor;
-    }
-
-    &-text {
-      color: $secondColor;
-      font-size: 16px;
-      font-weight: 500;
-    }
   }
 }
 </style>

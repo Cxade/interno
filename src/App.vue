@@ -2,7 +2,7 @@
   <div id="app">
     <HeaderBlock />
     <router-view />
-    <FooterBlock />
+    <FooterBlock v-if="showFooter" />
   </div>
 </template>
 
@@ -14,6 +14,11 @@ export default {
   components: {
     HeaderBlock,
     FooterBlock,
+  },
+  computed: {
+    showFooter() {
+      return this.$route.name !== "notFound";
+    },
   },
 };
 </script>

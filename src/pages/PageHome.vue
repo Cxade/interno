@@ -38,43 +38,7 @@
             the of readable content of page lookings at its layouts points.
           </p>
         </div>
-        <div class="projects__kitchen-box">
-          <div
-            class="projects__kitchen"
-            v-for="card in projectKitchenCardsName"
-            :key="card.key"
-          >
-            <img
-              :src="require('@/assets/img/' + card)"
-              alt="kitchen"
-              class="projects__kitchen-img"
-            />
-            <div class="projects__kitchen-content">
-              <div>
-                <h3 class="projects__kitchen-heading">Modern Kitchen</h3>
-                <p class="projects__kitchen-text">Decor / Artchitecture</p>
-              </div>
-              <a href="#" class="link-arrow">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="70"
-                  height="70"
-                  viewBox="0 0 70 70"
-                  fill="none"
-                >
-                  <circle cx="35" cy="35" r="35" fill="#F4F0EC" />
-                  <path
-                    d="M32 44L40 35L32 26"
-                    stroke="#292F36"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
+        <HomeBlockProjects :cards="projectKitchenCards" />
       </div>
     </section>
     <div class="experience">
@@ -108,52 +72,34 @@
           of readable content of a page when lookings at its layouts the points
           of using.
         </p>
-        <ArticlesCardsTemplate
-          :articlesCards="articlesCards"
-          :slides-per-view="3"
-        />
+        <BlockArticles :articlesCards="articlesCardsForHome" />
       </div>
     </section>
   </div>
 </template>
 
 <script>
-import ArticlesCardsTemplate from "@/components/ArticlesCardsTemplate.vue";
+import HomeBlockProjects from "@/blocks/HomeBlockProjects.vue";
+import BlockArticles from "@/blocks/BlockArticles.vue";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "PageHome",
   components: {
-    ArticlesCardsTemplate,
+    BlockArticles,
+    HomeBlockProjects,
   },
-  data() {
-    return {
-      projectKitchenCardsName: {
-        name_1: "kitchen1.png",
-        name_2: "kitchen2.png",
-        name_3: "kitchen3.png",
-        name_4: "kitchen4.png",
-      },
-      articlesCards: {
-        card_1: {
-          imgName: "design1.png",
-          text: "Kitchen Design",
-          heading: "Let’s Get Solution For Building Construction Work",
-          date: "26 December,2022",
-        },
-        card_2: {
-          imgName: "design2.png",
-          text: "Living Design",
-          heading: "Low Cost Latest Invented Interior Designing Ideas.",
-          date: "22 December,2022",
-        },
-        card_3: {
-          imgName: "design3.png",
-          text: "Interior Design",
-          heading: "Best For Any Office & Business Interior Solution",
-          date: "25 December,2022",
-        },
-      },
-    };
+  mounted() {
+    this.fetchData();
+  },
+  methods: {
+    ...mapActions(["fetchData"]),
+  },
+  computed: {
+    ...mapGetters(["projectKitchenCards", "articlesCards"]),
+    articlesCardsForHome() {
+      return this.articlesCards.slice(0, 3);
+    },
   },
 };
 </script>
@@ -198,7 +144,6 @@ export default {
 
     &:hover {
       cursor: pointer;
-      // outline: 3px solid #cda274;
       background-color: $mainColor;
     }
     &:hover svg path {
@@ -228,47 +173,6 @@ export default {
     letter-spacing: 0.22px;
     margin-bottom: 93px;
     max-width: 738px;
-  }
-  &__kitchen-box {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: 96px;
-  }
-  &__kitchen-box &__kitchen:nth-child(4n-3) img {
-    border-radius: 0 80px 0 0;
-  }
-  &__kitchen-box &__kitchen:nth-child(4n-2) img {
-    border-radius: 80px 0 0 0;
-  }
-  &__kitchen-box &__kitchen:nth-child(4n-1) img {
-    border-radius: 0 0 80px 0;
-  }
-  &__kitchen-box &__kitchen:nth-child(4n) img {
-    border-radius: 0 0 0 80px;
-  }
-
-  &__kitchen {
-    max-width: 548px;
-    margin-bottom: 56px;
-  }
-  &__kitchen-img {
-    margin-bottom: 24px;
-  }
-  &__kitchen-content {
-    display: flex;
-    justify-content: space-between;
-  }
-  &__kitchen-heading {
-    color: $secondColor;
-    font-size: 25px;
-    letter-spacing: 0.5px;
-    margin-bottom: 4px;
-  }
-  &__kitchen-text {
-    color: $textColor;
-    font-size: 22px;
-    letter-spacing: 0.22px;
   }
 }
 
