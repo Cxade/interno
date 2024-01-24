@@ -38,4 +38,12 @@ export default {
     margin-bottom: 96px;
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .projects {
+    &__kitchen-box {
+      justify-content: center;
+    }
+  }
+}
 </style>

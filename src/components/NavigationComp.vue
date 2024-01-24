@@ -28,4 +28,10 @@ export default {
     }
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .navigation {
+    gap: 10px !important;
+  }
+}
 </style>

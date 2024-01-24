@@ -158,4 +158,10 @@ export default {
     margin-bottom: 52px;
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .post__card {
+    flex-direction: column;
+  }
+}
 </style>

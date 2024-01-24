@@ -94,4 +94,16 @@ export default {
 .border_3 {
   border-radius: 0 0 0 80px;
 }
+@media screen and (max-width: 767px) {
+  .projects__kitchen-heading {
+    font-size: 20px;
+  }
+  .projects__kitchen-text {
+    font-size: 17px;
+  }
+  .link-arrow svg {
+    width: 40px;
+    height: 40px;
+  }
+}
 </style>

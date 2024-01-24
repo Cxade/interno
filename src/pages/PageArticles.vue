@@ -136,4 +136,10 @@ export default {
   background-color: $secondColor;
   color: #fff;
 }
+@media screen and (max-width: 1024px) {
+  .articles__content {
+    flex-direction: column-reverse;
+    gap: 40px;
+  }
+}
 </style>

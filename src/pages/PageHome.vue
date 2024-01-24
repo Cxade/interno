@@ -230,4 +230,18 @@ export default {
     margin-bottom: 52px;
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .experience {
+    &__main {
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 30px 0;
+    }
+    &__line {
+      display: none;
+    }
+  }
+}
 </style>
