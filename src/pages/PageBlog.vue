@@ -55,8 +55,14 @@
     <section class="articles">
       <div class="articles__main center">
         <h1 class="articles__heading flex">Articles & News</h1>
-        <BlockArticles :articlesCards="articlesCards" />
-        <SwiperPlug :style="{ marginTop: '51px' }" />
+        <BlockArticles :articlesCards="displayedCards" />
+        <PaginationCards
+          :style="{ marginTop: '51px' }"
+          :currentPage="currentPage"
+          :totalPages="totalPages"
+          @page-change="changePage"
+          @next-page="nextPage"
+        />
       </div>
     </section>
   </div>
@@ -67,23 +73,43 @@ import { mapGetters, mapActions } from "vuex";
 import BlockArticles from "@/blocks/BlockArticles.vue";
 
 import BannerTop from "@/components/BannerTop.vue";
-import SwiperPlug from "@/components/SwiperPlug.vue";
+import PaginationCards from "@/components/PaginationCards.vue";
 
 export default {
   name: "PageBlog",
   components: {
     BannerTop,
-    SwiperPlug,
+    PaginationCards,
     BlockArticles,
+  },
+  data() {
+    return {
+      currentPage: 1,
+      pageSize: 6,
+    };
   },
   mounted() {
     this.fetchData();
   },
   methods: {
     ...mapActions(["fetchData"]),
+    changePage(pageNumber) {
+      this.currentPage = pageNumber;
+    },
+    nextPage(next) {
+      this.currentPage = next;
+    },
   },
   computed: {
     ...mapGetters(["articlesCards"]),
+    displayedCards() {
+      const startIndex = (this.currentPage - 1) * this.pageSize;
+      const endIndex = startIndex + this.pageSize;
+      return this.articlesCards.slice(startIndex, endIndex);
+    },
+    totalPages() {
+      return Math.ceil(this.articlesCards.length / this.pageSize);
+    },
   },
 };
 </script>

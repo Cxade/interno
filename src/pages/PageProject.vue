@@ -19,7 +19,11 @@
         </button>
       </div>
       <ProjectBlockProjects :cards="activeData" />
-      <SwiperPlug :style="{ marginBottom: '200px' }" />
+      <PaginationCards
+        :style="{ marginBottom: '200px' }"
+        :currentPage="1"
+        :totalPages="3"
+      />
     </div>
   </div>
 </template>
@@ -27,11 +31,11 @@
 <script>
 import BannerTop from "@/components/BannerTop.vue";
 import ProjectBlockProjects from "@/blocks/ProjectBlockProjects.vue";
-import SwiperPlug from "@/components/SwiperPlug.vue";
+import PaginationCards from "@/components/PaginationCards.vue";
 
 export default {
   name: "PageProject",
-  components: { BannerTop, ProjectBlockProjects, SwiperPlug },
+  components: { BannerTop, ProjectBlockProjects, PaginationCards },
   data() {
     return {
       tags: ["Bathroom", "Bedroom", "Kitchen", "Living Area"],
