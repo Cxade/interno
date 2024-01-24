@@ -301,4 +301,17 @@ export default {
   color: #fff;
   background-color: $mainColor;
 }
+
+@media screen and (max-width: 1024px) {
+  .project__tag {
+    padding: 16px 20px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .project__tag {
+    padding: 15px 0;
+    font-size: 16px;
+  }
+}
 </style>

@@ -72,4 +72,10 @@ export default {
     letter-spacing: 0.22px;
   }
 }
+
+@media screen and (max-width: 767px) {
+  .banner {
+    margin-bottom: 100px;
+  }
+}
 </style>

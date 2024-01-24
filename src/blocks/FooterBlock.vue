@@ -106,4 +106,25 @@ export default {
     }
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .footer {
+    &__main {
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    &__left {
+      margin-right: 0;
+    }
+    &__mid {
+      margin-right: 0;
+    }
+    &__right {
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+}
 </style>

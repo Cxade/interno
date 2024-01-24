@@ -21,4 +21,9 @@ export default {
   flex-wrap: wrap;
   gap: 28px;
 }
+@media screen and (max-width: 1024px) {
+  .articles__box {
+    gap: 6px;
+  }
+}
 </style>

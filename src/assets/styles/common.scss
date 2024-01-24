@@ -43,3 +43,19 @@ a {
   border-radius: 50px;
   outline: 3px solid #cda274;
 }
+
+@media screen and (max-width: 1024px) {
+  .center {
+    max-width: 768px;
+  }
+  body {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .center {
+    max-width: 375px;
+  }
+}
