@@ -12,7 +12,7 @@
             <div v-if="article.tag === activeTag">
               <p class="articles__article-date">{{ article.date }}</p>
               <h1>{{ article.title }}</h1>
-              <img :src="'/img/articles/' + article.img" :alt="article.tag" />
+              <img :src="'./img/articles/' + article.img" :alt="article.tag" />
               <p class="articles__article-text">{{ article.text }}</p>
             </div>
           </div>
@@ -69,7 +69,7 @@ export default {
 @import "@/assets/styles/variables.scss";
 
 .articles__banner {
-  background: no-repeat center 50% url("@/assets/img/articles_top.png");
+  background: no-repeat center 50% url("../../public/img/articles_top.png");
   background-color: #e7e7e7;
   height: 351px;
   object-fit: cover;

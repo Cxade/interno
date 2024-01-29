@@ -9,7 +9,7 @@
       <swiper-slide v-for="(imgName, index) in swiperImgName" :key="index"
         ><img
           class="swiper__img"
-          :src="'/img/' + imgName"
+          :src="'./img/' + imgName"
           alt="project details"
       /></swiper-slide>
     </swiper>

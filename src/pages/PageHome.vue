@@ -109,7 +109,7 @@ export default {
 
 .welcome {
   &__main {
-    background-image: url(@/assets/img/main_img.png);
+    background-image: url("../../public/img/home_welcome.png");
     padding: 208px 0 208px 52px;
     border-radius: 50px;
     background-size: cover;

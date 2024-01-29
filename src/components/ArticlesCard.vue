@@ -1,7 +1,7 @@
 <template>
   <div class="articles__card">
     <img
-      :src="'/img/blog_articles/' + card.imgName"
+      :src="'./img/blog_articles/' + card.imgName"
       alt="design card"
       class="articles__card-img"
     />

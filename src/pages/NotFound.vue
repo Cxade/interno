@@ -33,14 +33,6 @@
 <script>
 export default {
   name: "NotFound",
-
-  data() {
-    return {};
-  },
-
-  mounted() {},
-
-  methods: {},
 };
 </script>
 
@@ -97,7 +89,7 @@ export default {
   }
 
   &__background {
-    background: no-repeat url(@/assets/img/404-2.png);
+    background: no-repeat url("../../public/img/404-2.png");
     height: 1024px;
     border-radius: 0px 0px 0px 353px;
     position: absolute;

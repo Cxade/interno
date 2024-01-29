@@ -1,7 +1,7 @@
 <template>
   <div class="projects__kitchen">
     <img
-      :src="'/img/' + imgName"
+      :src="'./img/' + imgName"
       alt="kitchen project"
       class="projects__kitchen-img"
       :class="'border_' + numbImg"

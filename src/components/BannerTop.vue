@@ -2,7 +2,7 @@
   <div
     class="banner"
     :style="{
-      background: `no-repeat center 80% url('/img/banners/${imageName}')`,
+      background: `no-repeat center 80% url('./img/banners/${imageName}')`,
     }"
   >
     <div v-if="bannerInside" class="banner__inside">
