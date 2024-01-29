@@ -11,7 +11,7 @@
         <h2 class="post__heading">Latest Post</h2>
         <div class="post__card">
           <img
-            src="../assets/img/blog_post.jpg"
+            src="../../public/img/blog_post.jpg"
             class="post__img"
             alt="latest post"
           />
