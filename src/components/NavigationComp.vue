@@ -15,6 +15,7 @@ export default {
 
 .navigation {
   display: flex;
+  flex-direction: column;
   &__link {
     color: $secondColor;
     text-align: center;
@@ -28,10 +29,7 @@ export default {
     }
   }
 }
-
-@media screen and (max-width: 1024px) {
-  .navigation {
-    gap: 10px !important;
-  }
+.router-link-active {
+  color: $mainColor;
 }
 </style>

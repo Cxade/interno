@@ -2,7 +2,7 @@
   <header class="header">
     <div class="header__main center">
       <LogoMain />
-      <NavigationComp :style="{ gap: '50px' }" />
+      <NavigationComp :style="{ gap: '50px', flexDirection: 'row' }" />
     </div>
   </header>
 </template>
@@ -27,6 +27,12 @@ export default {
     align-items: center;
     justify-content: space-between;
     padding: 53px 0 57px 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header__main {
+    flex-direction: column;
   }
 }
 </style>

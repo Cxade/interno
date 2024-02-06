@@ -34,7 +34,7 @@
       </div>
       <div class="footer__mid">
         <h3 class="footer__mid-heading">Pages</h3>
-        <NavigationComp :style="{ flexDirection: 'column' }" />
+        <NavigationComp />
       </div>
       <div class="footer__right">
         <h3 class="footer__right-title">Contact</h3>
@@ -133,6 +133,19 @@ export default {
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
+  .footer__main {
+    flex-direction: column;
+  }
+  .footer__right {
+    order: -1;
+  }
+  .footer__mid {
+    order: -2;
+  }
+  .footer__mid nav {
+    flex-direction: row;
+    gap: 10px;
+  }
 }
 </style>

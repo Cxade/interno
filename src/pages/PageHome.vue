@@ -60,7 +60,7 @@
         <div class="experience__line"></div>
         <div class="experience__box">
           <p class="experience__heading">95</p>
-          <p class="experience__text">Happy CUstomers</p>
+          <p class="experience__text">Happy Customers</p>
         </div>
       </div>
     </div>
@@ -241,6 +241,9 @@ export default {
     }
     &__line {
       display: none;
+    }
+    &__text {
+      font-size: 18px;
     }
   }
 }
